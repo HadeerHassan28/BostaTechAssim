@@ -2,13 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;500&family=Source+Sans+3:wght@400;600;700&display=swap");
 :root {
   --main-color: #e30613;
-  --light-color: #f0f3f2;
+  --light-color: #afafaf;
+  --bg-color: #f0f0f0;
   --text-color: #0d0d0d;
-  --shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
-    rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
-    rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
   --font-family: "Cairo", sans-serif;
-  --rating-color: #ffc908;
 }
 
 body {
@@ -17,6 +14,25 @@ body {
 .text {
   color: var(--text-color);
 }
+.title {
+  font-weight: 500;
+}
 .border {
   border: 1px solid var(--main-color);
+}
+.homeBorder {
+  border: 1px solid var(--light-color);
+}
+.status {
+  padding: 20px;
+  border-radius: 5px;
+}
+.table-bg {
+  color: var(--light-color);
+  background-color: var(--bg-color);
+}
+.btn {
+  background-color: var(--main-color);
+  color: var(--bg-color);
+  font-weight: 400;
 }

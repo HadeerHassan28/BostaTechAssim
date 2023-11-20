@@ -1,3 +1,5 @@
+get the values of colors using figma from the attchmets pics
+
 To intsall node module:
 npm i
 
