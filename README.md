@@ -8,3 +8,5 @@ npm run dev
 
 enter each value individaul :
 7234258, 13737343, 67151313
+
+for the home page cab divide it for many components

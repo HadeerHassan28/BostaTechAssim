@@ -60,7 +60,7 @@ export const TrackingProvider = ({ children }) => {
   // }
 
   const values = {
-    stateData: state.data,
+    stateData: state?.data,
     setTrackingAndFetch,
   };
 

@@ -6,5 +6,7 @@
   "Login": "تسجيل دخول",
   "shipping": "تتبع شحنتك",
   "Please Enter a Tracking Number": "أدخل رقم الشحنة",
-  "Track Ship": "تتبع"
+  "Track Ship": "تتبع",
+  "DELIVERED": "تم تسليم الشحنة",
+  "PACKAGE_RECEIVED": "تم آستلام الشحنة"
 }

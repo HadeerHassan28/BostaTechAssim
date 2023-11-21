@@ -6,5 +6,7 @@
   "Login": "Login",
   "shipping": "shipping",
   "Please Enter a Tracking Number": "Please Enter a Tracking Number",
-  "Track Ship": "Track Ship"
+  "Track Ship": "Track Ship",
+  "DELIVERED": "DELIVERED",
+  "PACKAGE_RECEIVED": "PACKAGE_RECEIVED"
 }

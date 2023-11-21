@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;500&family=Source+Sans+3:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;500;600;800&family=Source+Sans+3:wght@400;600;700&display=swap");
 :root {
   --main-color: #e30613;
   --light-color: #afafaf;
@@ -23,6 +23,7 @@ body {
 .homeBorder {
   border: 1px solid var(--light-color);
 }
+
 .status {
   padding: 20px;
   border-radius: 5px;
@@ -31,8 +32,59 @@ body {
   color: var(--light-color);
   background-color: var(--bg-color);
 }
+.bg {
+  background-color: var(--bg-color);
+}
 .btn {
   background-color: var(--main-color);
   color: var(--bg-color);
   font-weight: 400;
+}
+.info {
+  font-weight: 800;
+}
+.line {
+  height: 1px;
+  background-color: var(--bg-color);
+}
+.lineBorder {
+  border: 1px solid var(--light-color);
+  height: 100px;
+  padding: 15px 20px;
+}
+.lineUI {
+  height: 7px;
+  width: 100%;
+  position: relative;
+  background-color: var(--light-color);
+}
+
+.stateDel {
+  height: 7px;
+  width: 100%;
+  background-color: #00c54d;
+}
+.stateCancel {
+  height: 7px;
+  width: 50%;
+  background-color: var(--main-color);
+}
+
+.stateDuring {
+  height: 7px;
+  width: 75%;
+  background-color: #ffb12b;
+}
+.items {
+  position: absolute;
+  top: -5px;
+}
+
+.thirdIcon {
+  position: absolute;
+  top: -5px;
+  /* left: 50%; */
+}
+.forthIcon {
+  top: -5px;
 }
