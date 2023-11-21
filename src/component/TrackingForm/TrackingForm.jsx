@@ -19,14 +19,14 @@ const TrackingForm = () => {
   };
 
   return (
-    <div className="container mt-5 border">
+    <div className="container mt-5 border ">
       <div className="d-flex justify-content-center algin-item-center">
-        <h3 className="h3 text-danger">
+        <h3 className="h3 text-danger mt-3">
           {t("Please Enter a Tracking Number")}
         </h3>
       </div>
 
-      <div className="d-flex justify-content-center algin-item-center mt-4 ">
+      <div className="d-flex justify-content-center algin-item-center mt-4 mb-5">
         <input
           className="mx-3 w-50"
           type="text"

@@ -8,10 +8,6 @@ const TrackingTable = ({ stateData }) => {
       year: "numeric",
       month: "numeric",
       day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
-      hour12: false,
     };
     return new Date(timestamp).toLocaleDateString("ar-EG", options);
   };
@@ -27,9 +23,9 @@ const TrackingTable = ({ stateData }) => {
   };
   return (
     <>
-      <div className="col-md-8">
+      <div className="col-lg-8">
         <h5 className="h5 mb-4">تفاصيل الشحنة</h5>
-        <table className="border">
+        <table className="border table-responsive">
           <thead className="table-bg">
             <tr>
               <th className="px-5 py-3">الفرع</th>
@@ -42,14 +38,21 @@ const TrackingTable = ({ stateData }) => {
             {stateData.TransitEvents.map((event, index) => (
               <>
                 <tr key={index}>
-                  <td className="px-5 py-3">{event.hub || "لا يوجد"}</td>
+                  <td className="px-5 py-3">
+                    {event.hub != undefined ? t(`${event.hub}`) : "لا يوجد"}
+                  </td>
                   <td className="px-5 py-3">
                     {formatDateTable(event.timestamp)}
                   </td>
                   <td className="px-5 py-3">
                     {formatTimeTable(event.timestamp)}
                   </td>
-                  <td className="px-5 py-3">{t(`${event.state}`)}</td>
+                  <td className="px-5 py-3">
+                    {t(`${event.state}`)}
+                    {event.reason != undefined ? (
+                      <p className="text-danger">{event.reason}</p>
+                    ) : null}
+                  </td>
                 </tr>
                 <tr>
                   {" "}

@@ -35,8 +35,6 @@ const Home = () => {
     return formattedDate;
   }
 
-  //Convert the date and time sepearte for the table:
-
   return (
     <>
       {stateData ? (
@@ -94,7 +92,7 @@ const Home = () => {
             {/* Table details */}
             <TrackingTable stateData={stateData} />
             {/* Adress and complain */}
-            <div className="col-md-4 ">
+            <div className="col-lg-4 ">
               <h5 className="h5 title mb-4">عنوان التسليم</h5>
               <div className="bg p-3">
                 آمبابة شارع طلعت حرب مدينة العمال بجوار البرنس منرل ١٧بلوك ٣٣،،،

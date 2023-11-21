@@ -8,5 +8,14 @@
   "Please Enter a Tracking Number": "Please Enter a Tracking Number",
   "Track Ship": "Track Ship",
   "DELIVERED": "DELIVERED",
-  "PACKAGE_RECEIVED": "PACKAGE_RECEIVED"
+  "PACKAGE_RECEIVED": "PACKAGE_RECEIVED",
+  "Cairo Sorting Facility": "Cairo Sorting Facility",
+  "Tanta Hub": "Tanta Hub",
+  "IN_TRANSIT": "IN_TRANSIT",
+  "TICKET_CREATED": "TICKET CREATED",
+  "NOT_YET_SHIPPED": "NOT YET SHIPPED",
+  "OUT_FOR_DELIVERY": "OUT_FOR_DELIVERY",
+  "WAITING_FOR_CUSTOMER_ACTION": "WAITING FOR CUSTOMER ACTION",
+  "N/A": "N/A",
+  "CANCELLED": "CANCELLED"
 }

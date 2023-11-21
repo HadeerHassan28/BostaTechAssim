@@ -8,5 +8,14 @@
   "Please Enter a Tracking Number": "أدخل رقم الشحنة",
   "Track Ship": "تتبع",
   "DELIVERED": "تم تسليم الشحنة",
-  "PACKAGE_RECEIVED": "تم آستلام الشحنة"
+  "PACKAGE_RECEIVED": "تم آستلام الشحنة",
+  "Cairo Sorting Facility": "منشأة الفرز بالقاهرة",
+  "Tanta Hub": "محور طنطا",
+  "IN_TRANSIT": "تذكرة تم إنشاؤها",
+  "NOT_YET_SHIPPED": "لم يتم شحنه بعد",
+  "OUT_FOR_DELIVERY": "خارج للتوصيل",
+  "WAITING_FOR_CUSTOMER_ACTION": "في أنتظار خدمة العملاء",
+  "TICKET_CREATED": "أنشاء التذكرة",
+  "N/A": "لا يوجد",
+  "CANCELLED": "تم إلغاء الشحنة"
 }

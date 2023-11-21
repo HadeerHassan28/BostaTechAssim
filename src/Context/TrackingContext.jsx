@@ -13,7 +13,7 @@ export const TrackingProvider = ({ children }) => {
       : null,
     method: "GET",
   });
-
+  console.log(data);
   const [state, dispatch] = useReducer(Reducer, {
     data: [],
     loading: true,
@@ -58,6 +58,7 @@ export const TrackingProvider = ({ children }) => {
   //     </div>
   //   );
   // }
+  console.log(state.data);
 
   const values = {
     stateData: state?.data,
