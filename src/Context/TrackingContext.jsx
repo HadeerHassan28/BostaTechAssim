@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState, useCallback } from "react";
 import useAxios from "axios-hooks";
 import Reducer from "./reducer";
 import { GET_DATA, FETCH_ERROR } from "./reducersTypes";
@@ -6,6 +6,7 @@ import { GET_DATA, FETCH_ERROR } from "./reducersTypes";
 export const TrackingDataContext = React.createContext();
 
 export const TrackingProvider = ({ children }) => {
+  const [loadingData, setLoadingData] = useState(true);
   const [trackingNumber, setTrackingNumber] = useState("");
   const [{ data, loading, error }, refetch] = useAxios({
     url: trackingNumber
@@ -33,12 +34,12 @@ export const TrackingProvider = ({ children }) => {
     } else if (error) {
       dispatch({ type: FETCH_ERROR, payload: error });
     }
+    setLoadingData(false);
   }, [data, error]);
 
-  const setTrackingAndFetch = (newTrackingNumber) => {
+  const setTrackingAndFetch = useCallback((newTrackingNumber) => {
     setTrackingNumber(newTrackingNumber);
-  };
-
+  }, []);
   if (loading) {
     return (
       <div className="container border">
@@ -49,20 +50,12 @@ export const TrackingProvider = ({ children }) => {
     );
   }
 
-  // if (error) {
-  //   return (
-  //     <div className="container border">
-  //       <p className="text-danger display-3">
-  //         <strong>Error..!</strong>
-  //       </p>
-  //     </div>
-  //   );
-  // }
   console.log(state.data);
 
   const values = {
     stateData: state?.data,
     setTrackingAndFetch,
+    loadingData,
   };
 
   return (

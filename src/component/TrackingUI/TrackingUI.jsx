@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./TrackingUi.module.css";
-const TrackingUi = ({ stateData }) => {
+const TrackingUi = ({ stateData, reason }) => {
   console.log(stateData);
   return (
     <>
@@ -17,26 +17,47 @@ const TrackingUi = ({ stateData }) => {
           >
             <div className="items w-100 d-flex justify-content-between">
               <i className="fa-regular fa-circle-check " />
-              <i className="fa-regular fa-circle-check " />
 
-              <div className="thirdIcon ">
-                {stateData === "DELIVERED" ? (
-                  <i className="fa-regular fa-circle-check " />
-                ) : (
-                  <i className="fa-solid fa-truck " />
-                )}
-              </div>
+              <i className="fa-regular fa-circle-check secItem" />
 
-              <div className="forthIcon">
-                {stateData === "DELIVERED" ? (
-                  <i className="fa-regular fa-circle-check " />
-                ) : (
-                  <i
-                    className="fa-solid fa-house-circle-check 
+              {/* <div className="thirdIcon "> */}
+              {stateData === "DELIVERED" ? (
+                <i className="fa-regular fa-circle-check " />
+              ) : (
+                <i className="fa-solid fa-truck fs-3" />
+              )}
+              {/* </div> */}
+
+              {/* <div className="forthIcon"> */}
+              {stateData === "DELIVERED" ? (
+                <i className="fa-regular fa-circle-check " />
+              ) : (
+                <i
+                  className="fa-solid fa-house-circle-check fs-3
               "
-                  />
-                )}
-              </div>
+                />
+              )}
+              {/* </div> */}
+            </div>
+            <div className="d-flex justify-content-between w-100 ">
+              <p className="text title py-3 ">تم أنشاء الشحنة</p>
+              <p className="text title py-3 ">تم أستلام الشحنة من التاجر</p>
+              <p className="text title py-3 ">الشحنة خرجت للتسليم </p>
+              {reason && (
+                <p
+                  style={{
+                    color:
+                      stateData?.CurrentStatus.state === "DELIVERED"
+                        ? "#00C54D"
+                        : stateData?.CurrentStatus.state === "CANCELLED"
+                        ? "#e30613"
+                        : "#FFB12B",
+                  }}
+                >
+                  {reason}
+                </p>
+              )}
+              <p className="text title py-3 ">تم التسليم </p>
             </div>
           </div>
         </div>

@@ -1,11 +1,39 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import styles from "./NavBar.module.css";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import logo from "../../assets/imgs/logo.png";
+import { Modal, Button, InputGroup } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { TrackingDataContext } from "../../Context/TrackingContext";
 const NavBar = () => {
   const { t } = useTranslation();
 
+  const [showModal, setShowModal] = useState(false);
+  const [isShippingButtonActive, setShippingButtonActive] = useState("");
+
+  const handleShowModal = () => {
+    setShowModal(true);
+    setShippingButtonActive("#e30613");
+  };
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setShippingButtonActive(false);
+  };
+
+  //for search button of modal:
+  const navigate = useNavigate();
+  const [trackingNumber, setTrackingNumber] = useState("");
+  const { setTrackingAndFetch } = useContext(TrackingDataContext);
+
+  const handleTrack = async () => {
+    try {
+      await setTrackingAndFetch(trackingNumber);
+      navigate("/home");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <nav className="navbar navbar-expand-sm navbar-light bg-light fixed-top">
@@ -52,7 +80,17 @@ const NavBar = () => {
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0 mx-5 pe-5 d-flex justify-content-end">
               <li className="nav-item">
                 <Link className="nav-link">
-                  <strong className="text"> {t("shipping")}</strong>
+                  <button onClick={handleShowModal} className="navBtn ">
+                    <strong
+                      className=" text "
+                      style={{ color: isShippingButtonActive }}
+                    >
+                      {t("shipping")}
+                      {isShippingButtonActive && (
+                        <i className="fa-solid fa-arrow-left fs-6"></i>
+                      )}
+                    </strong>
+                  </button>
                 </Link>
               </li>
               <li className="nav-item">
@@ -68,6 +106,35 @@ const NavBar = () => {
             </ul>
           </div>
         </div>
+        {/* Modal for Shipping */}
+        <Modal
+          backdropClassName="custom-modal-backdrop"
+          dialogClassName="modal-custom"
+          show={showModal}
+          onHide={handleCloseModal}
+          style={{
+            marginTop: "46px",
+            left: "-155px",
+          }}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>لتتبع شحنتك</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <InputGroup onClick={handleTrack}>
+              <input
+                className="mx-3 w-50"
+                type="text"
+                placeholder={t("Please Enter a Tracking Number")}
+                value={trackingNumber}
+                onChange={(e) => setTrackingNumber(e.target.value)}
+              />
+              <Button>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </Button>
+            </InputGroup>
+          </Modal.Body>
+        </Modal>
       </nav>
     </>
   );

@@ -50,19 +50,21 @@ body {
 .lineBorder {
   border: 1px solid var(--light-color);
   height: 100px;
-  padding: 15px 20px;
+  padding: 15px 30px;
 }
 .lineUI {
   height: 7px;
   width: 100%;
   position: relative;
   background-color: var(--light-color);
+  border-radius: 10px;
 }
 
 .stateDel {
   height: 7px;
   width: 100%;
   background-color: #00c54d;
+  color: #f0f0f0;
 }
 .stateCancel {
   height: 7px;
@@ -78,13 +80,43 @@ body {
 .items {
   position: absolute;
   top: -5px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #00c54d;
 }
-
+.secItem {
+  right: calc(50% + 100px);
+}
 .thirdIcon {
   position: absolute;
   top: -5px;
-  /* left: 50%; */
+  left: calc(50% - 130px);
 }
+
 .forthIcon {
+  position: absolute;
   top: -5px;
+  left: calc(0px); /* Adjust the value as needed */
+}
+
+.fa-regular,
+.fa-solid {
+  font-size: 1.5rem;
+  margin: 0 5px;
+}
+
+.modal-custom {
+  max-width: 300px;
+  width: 100%;
+}
+.custom-modal-backdrop {
+  background-color: rgba(0, 0, 0, 0);
+}
+.active {
+  color: var(--main-color);
+}
+
+.navBtn {
+  border: none;
+  background-color: transparent;
 }

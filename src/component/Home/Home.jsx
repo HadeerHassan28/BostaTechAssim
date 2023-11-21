@@ -7,7 +7,8 @@ import TrackingTable from "../TrackingTable/TrackingTable";
 import { useTranslation } from "react-i18next";
 const Home = () => {
   const { t } = useTranslation();
-  const { stateData } = useContext(TrackingDataContext);
+  const { stateData, loadingData } = useContext(TrackingDataContext);
+
   console.log(stateData);
   //Convert the date:
   function formatDateString(dateString) {
@@ -34,10 +35,22 @@ const Home = () => {
     const formattedDate = new Date(dateString).toLocaleString("ar-EG", options);
     return formattedDate;
   }
-
+  //Get the reason for TarackingUI:
+  const reason = stateData?.TransitEvents?.filter(
+    (event) => event.reason !== undefined && event.reason !== null
+  ).map((event) => event.reason);
+  if (loadingData || stateData == undefined) {
+    return (
+      <div className="container border">
+        <p className="text-danger display-3">
+          <strong>Loading...</strong>
+        </p>
+      </div>
+    );
+  }
   return (
     <>
-      {stateData ? (
+      {stateData && (
         <div className="container mt-5">
           {/* info shipping */}
           <div className="homeBorder">
@@ -86,7 +99,10 @@ const Home = () => {
             </div>
           </div>
           {/* ui of tracking */}
-          <TrackingUi stateData={stateData?.CurrentStatus.state} />
+          <TrackingUi
+            stateData={stateData?.CurrentStatus.state}
+            reason={reason}
+          />
 
           <div className="row mt-5">
             {/* Table details */}
@@ -111,12 +127,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
-      ) : (
-        <div className="container border">
-          <p className="text-danger display-3">
-            <strong>Error..!</strong>
-          </p>
         </div>
       )}
     </>

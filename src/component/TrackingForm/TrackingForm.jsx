@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { TrackingDataContext } from "../../Context/TrackingContext";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-useNavigate;
+
 const TrackingForm = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
