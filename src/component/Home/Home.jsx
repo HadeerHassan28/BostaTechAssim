@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import styles from "./Home.module.css";
 import prob from "../../assets/imgs/problem.png";
 import { TrackingDataContext } from "../../Context/TrackingContext";
-import TrackingUi from "../TrackingUI/TrackingUI";
+import HorizontalLinearStepper from "../TrackingUI/TrackingUI";
 import TrackingTable from "../TrackingTable/TrackingTable";
 import { useTranslation } from "react-i18next";
 const Home = () => {
   const { t } = useTranslation();
-  const { stateData, loadingData } = useContext(TrackingDataContext);
+  const { stateData, loading } = useContext(TrackingDataContext);
 
   console.log(stateData);
   //Convert the date:
@@ -39,7 +39,8 @@ const Home = () => {
   const reason = stateData?.TransitEvents?.filter(
     (event) => event.reason !== undefined && event.reason !== null
   ).map((event) => event.reason);
-  if (loadingData || stateData == undefined) {
+
+  if (loading || !stateData) {
     return (
       <div className="container border">
         <p className="text-danger display-3">
@@ -53,60 +54,71 @@ const Home = () => {
       {stateData && (
         <div className="container mt-5">
           {/* info shipping */}
-          <div className="homeBorder">
-            <div className="status   d-flex flex-row justify-content-between">
-              {/* رقم الشحن  */}
-              <div className="d-flex flex-column d1">
-                <p className="">رقم الشحن</p>
-                <p className="info">{stateData?.TrackingNumber}</p>
-              </div>
-              {/* state */}
-              <div className="d-flex flex-column d1">
-                <p className="">حالة الشحنة</p>
-                <p
-                  className="info"
-                  style={{
-                    color:
-                      stateData?.CurrentStatus.state === "DELIVERED"
-                        ? "#00C54D"
-                        : stateData?.CurrentStatus.state === "CANCELLED"
-                        ? "#e30613"
-                        : "#FFB12B",
-                  }}
-                >
-                  {t(`${stateData?.CurrentStatus.state}`)}
-                </p>
-              </div>
 
-              {/* update */}
-              <div className="d-flex flex-column d1">
-                <p className="">آخر تحديث </p>
-                <p className="info">
-                  {formatDateString(stateData?.CurrentStatus.timestamp)}
-                </p>
-              </div>
+          {stateData?.CurrentStatus && (
+            <>
+              <div className="d-flex flex-column ">
+                <div className="status   d-flex flex-row justify-content-between homeBorder">
+                  {/* رقم الشحن  */}
+                  <div className="d-flex flex-column d1">
+                    <p className="">رقم الشحن</p>
+                    <p className="info">{stateData?.TrackingNumber}</p>
+                  </div>
+                  {/* state */}
+                  <div className="d-flex flex-column d1">
+                    <p className="">حالة الشحنة</p>
 
-              <div className="d-flex  flex-column d1">
-                <p className="">اسم التاجر</p>
-                <p className="info">Souq.com</p>
+                    <p
+                      className="info"
+                      style={{
+                        color:
+                          stateData?.CurrentStatus.state === "DELIVERED"
+                            ? "#00C54D"
+                            : stateData?.CurrentStatus.state === "CANCELLED"
+                            ? "#e30613"
+                            : "#FFB12B",
+                      }}
+                    >
+                      {t(`${stateData?.CurrentStatus.state}`)}
+                    </p>
+                  </div>
+                  {/* update */}
+                  <div className="d-flex flex-column d1">
+                    <p className="">آخر تحديث </p>
+                    <p className="info">
+                      {formatDateString(stateData?.CurrentStatus.timestamp)}
+                    </p>
+                  </div>
+                  {/* NAMe */}
+                  <div className="d-flex  flex-column d1">
+                    <p className="">اسم التاجر</p>
+                    <p className="info">Souq.com</p>
+                  </div>
+                  {/* Date */}
+                  <div className="d-flex flex-column d1">
+                    <p className="">موعد التسليم خلال</p>
+                    <p className="info">
+                      {formatDateStringPromiseDate(stateData?.PromisedDate)}
+                    </p>
+                  </div>
+                </div>
+                {/* ui of tracking */}
+                <div className=" homeBorder">
+                  <HorizontalLinearStepper
+                    stateData={stateData?.CurrentStatus?.state}
+                    reason={reason}
+                  />
+                </div>
               </div>
-              <div className="d-flex flex-column d1">
-                <p className="">موعد التسليم خلال</p>
-                <p className="info">
-                  {formatDateStringPromiseDate(stateData?.PromisedDate)}
-                </p>
-              </div>
-            </div>
-          </div>
-          {/* ui of tracking */}
-          <TrackingUi
-            stateData={stateData?.CurrentStatus.state}
-            reason={reason}
-          />
+            </>
+          )}
 
           <div className="row mt-5">
             {/* Table details */}
-            <TrackingTable stateData={stateData} />
+            {stateData?.TransitEvents && (
+              <TrackingTable stateData={stateData} />
+            )}
+
             {/* Adress and complain */}
             <div className="col-lg-4 ">
               <h5 className="h5 title mb-4">عنوان التسليم</h5>

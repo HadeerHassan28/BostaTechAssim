@@ -5,8 +5,7 @@ import { GET_DATA, FETCH_ERROR } from "./reducersTypes";
 
 export const TrackingDataContext = React.createContext();
 
-export const TrackingProvider = ({ children }) => {
-  const [loadingData, setLoadingData] = useState(true);
+const TrackingProvider = ({ children }) => {
   const [trackingNumber, setTrackingNumber] = useState("");
   const [{ data, loading, error }, refetch] = useAxios({
     url: trackingNumber
@@ -22,20 +21,17 @@ export const TrackingProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    if (trackingNumber) {
-      // Make the API call only when trackingNumber is not empty
-      refetch();
-    }
-  }, [trackingNumber, refetch]);
-
-  useEffect(() => {
     if (data) {
       dispatch({ type: GET_DATA, payload: data });
     } else if (error) {
       dispatch({ type: FETCH_ERROR, payload: error });
+
+      if (trackingNumber) {
+        // Make the API call only when trackingNumber is not empty
+        refetch();
+      }
     }
-    setLoadingData(false);
-  }, [data, error]);
+  }, [trackingNumber, refetch, data, error]);
 
   const setTrackingAndFetch = useCallback((newTrackingNumber) => {
     setTrackingNumber(newTrackingNumber);
@@ -53,9 +49,9 @@ export const TrackingProvider = ({ children }) => {
   console.log(state.data);
 
   const values = {
-    stateData: state?.data,
+    stateData: state.data,
     setTrackingAndFetch,
-    loadingData,
+    loading,
   };
 
   return (
@@ -64,3 +60,4 @@ export const TrackingProvider = ({ children }) => {
     </TrackingDataContext.Provider>
   );
 };
+export default TrackingProvider;

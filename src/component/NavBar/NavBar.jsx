@@ -46,7 +46,7 @@ const NavBar = () => {
             </span>
           </Link>
           <button
-            className="navbar-toggler d-lg-none"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapsibleNavId"
@@ -121,7 +121,7 @@ const NavBar = () => {
             <Modal.Title>لتتبع شحنتك</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <InputGroup onClick={handleTrack}>
+            <InputGroup>
               <input
                 className="mx-3 w-50"
                 type="text"
@@ -129,7 +129,7 @@ const NavBar = () => {
                 value={trackingNumber}
                 onChange={(e) => setTrackingNumber(e.target.value)}
               />
-              <Button>
+              <Button onClick={handleTrack}>
                 <i class="fa-solid fa-magnifying-glass"></i>
               </Button>
             </InputGroup>
