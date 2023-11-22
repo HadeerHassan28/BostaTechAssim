@@ -132,7 +132,7 @@ const TrackingUi = ({ stateData, reason }) => {
   console.log(reason);
   return (
     <>
-      <div className=" lineBorder pb-3">
+      <div className=" lineBorder ">
         <div className="lineUI mt-2  ">
           {/* icons */}
           <div
@@ -230,11 +230,11 @@ const TrackingUi = ({ stateData, reason }) => {
           </div>
         </div>
         {/* Names */}
-        <div className="d-flex justify-content-between w-100 pt-2">
+        <div className="d-flex justify-content-between w-100 pt-2 ">
           <p className="text title py-3 ">تم أنشاء الشحنة</p>
           <p className="text title py-3 name2">تم أستلام الشحنة من التاجر</p>
           {/* Reason */}
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-column ">
             <p className="text title pt-3 m-0 name3 ">الشحنة خرجت للتسليم </p>
             <p>
               {reason && stateData != "DELIVERED" && (
