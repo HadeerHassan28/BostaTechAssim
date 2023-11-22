@@ -30,6 +30,8 @@ const NavBar = () => {
     try {
       await setTrackingAndFetch(trackingNumber);
       navigate("/home");
+      setShowModal(false);
+      setShippingButtonActive(false);
     } catch (error) {
       console.log(error);
     }
@@ -79,7 +81,7 @@ const NavBar = () => {
             </ul>
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0 mx-5 pe-5 d-flex justify-content-end">
               <li className="nav-item">
-                <Link className="nav-link" onClick={() => handleShowModal()}>
+                <Link className="nav-link" onClick={handleShowModal} to="/home">
                   <strong
                     className=" text "
                     style={{ color: isShippingButtonActive }}
