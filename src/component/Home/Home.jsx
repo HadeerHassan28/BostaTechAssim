@@ -58,61 +58,59 @@ const Home = () => {
 
           {stateData?.CurrentStatus && (
             <>
-              <div className="d-flex flex-column ">
-                <div className="status   d-flex flex-row justify-content-between homeBorder">
-                  {/* رقم الشحن  */}
-                  <div className="d-flex flex-column d1">
-                    <p className="">رقم الشحن</p>
-                    <p className="info">{stateData?.TrackingNumber}</p>
-                  </div>
-                  {/* state */}
-                  <div className="d-flex flex-column d1">
-                    <p className="">حالة الشحنة</p>
+              <div className="row">
+                <div className="d-flex flex-column col-lg-12">
+                  <div className="status   d-flex flex-row justify-content-between homeBorder">
+                    {/* رقم الشحن  */}
+                    <div className="d-flex flex-column d1">
+                      <p className="">رقم الشحن</p>
+                      <p className="info">{stateData?.TrackingNumber}</p>
+                    </div>
+                    {/* state */}
+                    <div className="d-flex flex-column d1">
+                      <p className="">حالة الشحنة</p>
 
-                    <p
-                      className="info"
-                      style={{
-                        color:
-                          stateData?.CurrentStatus.state === "DELIVERED"
-                            ? "#00C54D"
-                            : stateData?.CurrentStatus.state === "CANCELLED"
-                            ? "#e30613"
-                            : "#FFB12B",
-                      }}
-                    >
-                      {t(`${stateData?.CurrentStatus.state}`)}
-                    </p>
+                      <p
+                        className="info"
+                        style={{
+                          color:
+                            stateData?.CurrentStatus.state === "DELIVERED"
+                              ? "#00C54D"
+                              : stateData?.CurrentStatus.state === "CANCELLED"
+                              ? "#e30613"
+                              : "#FFB12B",
+                        }}
+                      >
+                        {t(`${stateData?.CurrentStatus.state}`)}
+                      </p>
+                    </div>
+                    {/* update */}
+                    <div className="d-flex flex-column d1">
+                      <p className="">آخر تحديث </p>
+                      <p className="info">
+                        {formatDateString(stateData?.CurrentStatus.timestamp)}
+                      </p>
+                    </div>
+                    {/* NAMe */}
+                    <div className="d-flex  flex-column d1">
+                      <p className="">اسم التاجر</p>
+                      <p className="info">Souq.com</p>
+                    </div>
+                    {/* Date */}
+                    <div className="d-flex flex-column d1">
+                      <p className="">موعد التسليم خلال</p>
+                      <p className="info">
+                        {formatDateStringPromiseDate(stateData?.PromisedDate)}
+                      </p>
+                    </div>
                   </div>
-                  {/* update */}
-                  <div className="d-flex flex-column d1">
-                    <p className="">آخر تحديث </p>
-                    <p className="info">
-                      {formatDateString(stateData?.CurrentStatus.timestamp)}
-                    </p>
+                  {/* ui of tracking */}
+                  <div className=" ">
+                    <TrackingUi
+                      stateData={stateData?.CurrentStatus?.state}
+                      reason={reason}
+                    />
                   </div>
-                  {/* NAMe */}
-                  <div className="d-flex  flex-column d1">
-                    <p className="">اسم التاجر</p>
-                    <p className="info">Souq.com</p>
-                  </div>
-                  {/* Date */}
-                  <div className="d-flex flex-column d1">
-                    <p className="">موعد التسليم خلال</p>
-                    <p className="info">
-                      {formatDateStringPromiseDate(stateData?.PromisedDate)}
-                    </p>
-                  </div>
-                </div>
-                {/* ui of tracking */}
-                <div className=" ">
-                  {/* <HorizontalLinearStepper
-                    stateData={stateData?.CurrentStatus?.state}
-                    reason={reason}
-                  /> */}
-                  <TrackingUi
-                    stateData={stateData?.CurrentStatus?.state}
-                    reason={reason}
-                  />
                 </div>
               </div>
             </>

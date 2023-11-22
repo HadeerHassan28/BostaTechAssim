@@ -129,10 +129,12 @@ import React from "react";
 
 import styles from "./TrackingUi.module.css";
 const TrackingUi = ({ stateData, reason }) => {
+  console.log(reason);
   return (
     <>
-      <div className=" lineBorder ">
+      <div className=" lineBorder pb-3">
         <div className="lineUI mt-2  ">
+          {/* icons */}
           <div
             className={
               stateData == "DELIVERED"
@@ -169,104 +171,93 @@ const TrackingUi = ({ stateData, reason }) => {
                   color: "white",
                 }}
               ></i>
-              {/* 3rd idon */}
-              {/* <div className="thirdIcon "> */}
-              {stateData === "DELIVERED" ? (
-                <i
-                  className="fa-solid fa-check roundDel3"
-                  style={{
-                    backgroundColor:
-                      stateData === "DELIVERED"
-                        ? "#00c54d"
-                        : stateData === "CANCELLED"
-                        ? "#e30613"
-                        : "#ffb12b ",
-                  }}
-                ></i>
-              ) : (
-                <i
-                  className="fa-solid fa-truck roundCal3 fs-4"
-                  style={{
-                    backgroundColor:
-                      stateData === "DELIVERED"
-                        ? "#00c54d"
-                        : stateData === "CANCELLED"
-                        ? "#e30613"
-                        : "#ffb12b ",
-                    color: "white",
-                  }}
-                />
-              )}
-              {/* </div> */}
-              {/* 4th icon */}
-              {/* <div className="forthIcon"> */}
-              {stateData === "DELIVERED" ? (
-                <i
-                  className="fa-solid fa-check roundDel4 "
-                  style={{
-                    backgroundColor:
-                      stateData === "DELIVERED"
-                        ? "#00c54d"
-                        : stateData === "CANCELLED"
-                        ? "#e30613"
-                        : "#ffb12b ",
-                  }}
-                ></i>
-              ) : (
-                <i
-                  className="fa-solid fa-house-circle-check roundCal4 fs-4
+            </div>
+            {/* 3rd idon */}
+            {/* <div className="thirdIcon "> */}
+            {stateData === "DELIVERED" ? (
+              <i
+                className="fa-solid fa-check roundDel3"
+                style={{
+                  backgroundColor:
+                    stateData === "DELIVERED"
+                      ? "#00c54d"
+                      : stateData === "CANCELLED"
+                      ? "#e30613"
+                      : "#ffb12b ",
+                }}
+              ></i>
+            ) : (
+              <i
+                className="fa-solid fa-truck roundCal3 fs-4"
+                style={{
+                  backgroundColor:
+                    stateData === "DELIVERED"
+                      ? "#00c54d"
+                      : stateData === "CANCELLED"
+                      ? "#e30613"
+                      : "#ffb12b ",
+                  color: "white",
+                }}
+              />
+            )}
+            {/* </div> */}
+            {/* 4th icon */}
+            {/* <div className="forthIcon"> */}
+            {stateData === "DELIVERED" ? (
+              <i
+                className="fa-solid fa-check roundDel4 "
+                style={{
+                  backgroundColor:
+                    stateData === "DELIVERED"
+                      ? "#00c54d"
+                      : stateData === "CANCELLED"
+                      ? "#e30613"
+                      : "#ffb12b ",
+                }}
+              ></i>
+            ) : (
+              <i
+                className="fa-solid fa-house-circle-check roundCal4 fs-4
             "
-                  style={{
-                    backgroundColor:
-                      stateData === "DELIVERED" ? "#00c54d" : "gray",
-                    color: "white",
-                  }}
-                />
-              )}
-              {/* </div> */}
-            </div>
-            <div className="d-flex justify-content-between w-100 pt-2">
-              <p className="text title py-3 ">تم أنشاء الشحنة</p>
-              <p className="text title py-3 ">تم أستلام الشحنة من التاجر</p>
-              <p className="text title py-3 ">الشحنة خرجت للتسليم </p>
-
-              <p className="text title py-3 ">تم التسليم </p>
-            </div>
+                style={{
+                  backgroundColor:
+                    stateData === "DELIVERED" ? "#00c54d" : "gray",
+                  color: "white",
+                }}
+              />
+            )}
+            {/* </div> */}
           </div>
         </div>
-        <div className="my-5 text-center ">
-          {reason && stateData != "DELIVERED" && (
-            <p
-              style={{
-                color:
-                  stateData === "DELIVERED"
-                    ? "#00C54D"
-                    : stateData === "CANCELLED"
-                    ? "#e30613"
-                    : "#FFB12B",
-              }}
-            >
-              {reason}
+        {/* Names */}
+        <div className="d-flex justify-content-between w-100 pt-2">
+          <p className="text title py-3 ">تم أنشاء الشحنة</p>
+          <p className="text title py-3 name2">تم أستلام الشحنة من التاجر</p>
+          {/* Reason */}
+          <div className="d-flex flex-column">
+            <p className="text title pt-3 m-0 name3 ">الشحنة خرجت للتسليم </p>
+            <p>
+              {reason && stateData != "DELIVERED" && (
+                <p
+                  className="p-0 m-0 "
+                  style={{
+                    color:
+                      stateData === "DELIVERED"
+                        ? "#00C54D"
+                        : stateData === "CANCELLED"
+                        ? "#e30613"
+                        : "#FFB12B",
+                  }}
+                >
+                  {reason[reason.length - 1]}
+                </p>
+              )}
             </p>
-          )}
+          </div>
+
+          <p className="text title py-3 name4">تم التسليم </p>
         </div>
       </div>
-
-      {/* <div className="homeBorder mt-1 d-flex flex-row p-3">
-      <div>
-        <i className="fa-regular fa-circle-check mx-5" />
-      </div>
-      <div>
-        <i className="fa-regular fa-circle-check mx-5" />
-      </div>
-      <div>
-        <i className="fa-solid fa-truck mx-5" />
-      </div>
-
-      <div>
-        <i className="fa-solid fa-house-circle-check mx-5" />
-      </div>
-    </div> */}
     </>
   );
 };
