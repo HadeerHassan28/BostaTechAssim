@@ -45,7 +45,7 @@ const Home = () => {
     return (
       <div className="container border">
         <p className="text-danger display-3">
-          <strong>Loading...</strong>
+          <strong>تحميل...</strong>
         </p>
       </div>
     );
