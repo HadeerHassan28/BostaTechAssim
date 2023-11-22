@@ -50,7 +50,7 @@ body {
 .lineBorder {
   border: 1px solid var(--light-color);
   height: 100px;
-  padding: 20px 50px 90px;
+  padding: 20px 50px 150px !important;
   margin: 0 auto;
 }
 .lineUI {

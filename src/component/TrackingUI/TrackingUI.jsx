@@ -100,34 +100,34 @@ const TrackingUi = ({ stateData, reason }) => {
             )}
             {/* </div> */}
           </div>
-        </div>
-        {/* Names */}
-        <div className="d-flex justify-content-between w-100 pt-2 ">
-          <p className="text title py-3 ">تم أنشاء الشحنة</p>
-          <p className="text title py-3 name2">تم أستلام الشحنة من التاجر</p>
-          {/* Reason */}
-          <div className="d-flex flex-column ">
-            <p className="text title pt-3 m-0 name3 ">الشحنة خرجت للتسليم </p>
-            <p>
-              {reason && stateData != "DELIVERED" && (
-                <p
-                  className="p-0 m-0 "
-                  style={{
-                    color:
-                      stateData === "DELIVERED"
-                        ? "#00C54D"
-                        : stateData === "CANCELLED"
-                        ? "#e30613"
-                        : "#FFB12B",
-                  }}
-                >
-                  {reason[reason.length - 1]}
-                </p>
-              )}
-            </p>
-          </div>
+          {/* Names */}
+          <div className="d-flex justify-content-between w-100 pt-2 ">
+            <p className="text title py-3 ">تم أنشاء الشحنة</p>
+            <p className="text title py-3 name2">تم أستلام الشحنة من التاجر</p>
+            {/* Reason */}
+            <div className="d-flex flex-column ">
+              <p className="text title pt-3 m-0 name3 ">الشحنة خرجت للتسليم </p>
+              <p>
+                {reason && stateData != "DELIVERED" && (
+                  <p
+                    className="p-0 m-0 "
+                    style={{
+                      color:
+                        stateData === "DELIVERED"
+                          ? "#00C54D"
+                          : stateData === "CANCELLED"
+                          ? "#e30613"
+                          : "#FFB12B",
+                    }}
+                  >
+                    {reason[reason.length - 1]}
+                  </p>
+                )}
+              </p>
+            </div>
 
-          <p className="text title py-3 name4">تم التسليم </p>
+            <p className="text title py-3 name4">تم التسليم </p>
+          </div>
         </div>
       </div>
     </>
