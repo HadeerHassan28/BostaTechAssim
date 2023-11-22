@@ -124,25 +124,26 @@
 //   );
 // }
 
+import { t } from "i18next";
 import React from "react";
+
 import styles from "./TrackingUi.module.css";
 const TrackingUi = ({ stateData, reason }) => {
-  console.log(stateData);
-
   return (
     <>
       <div className=" lineBorder ">
         <div className="lineUI mt-2  ">
           <div
             className={
-              stateData === "DELIVERED"
+              stateData == "DELIVERED"
                 ? "stateDel"
-                : stateData === "CANCELLED"
+                : stateData == "CANCELLED"
                 ? "stateCancel"
                 : "stateDuring "
             }
           >
             <div className="items w-100 d-flex justify-content-between ">
+              {/* 1st icon */}
               <i
                 className="fa-solid fa-check roundDel1 "
                 style={{
@@ -154,7 +155,7 @@ const TrackingUi = ({ stateData, reason }) => {
                       : "#ffb12b ",
                 }}
               ></i>
-
+              {/* 2nd icon */}
               <i
                 className="fa-solid fa-check roundDel2"
                 style={{
@@ -166,7 +167,7 @@ const TrackingUi = ({ stateData, reason }) => {
                       : "#ffb12b ",
                 }}
               ></i>
-
+              {/* 3rd idon */}
               {/* <div className="thirdIcon "> */}
               {stateData === "DELIVERED" ? (
                 <i
@@ -182,7 +183,7 @@ const TrackingUi = ({ stateData, reason }) => {
                 ></i>
               ) : (
                 <i
-                  className="fa-solid fa-truck fs-3"
+                  className="fa-solid fa-truck roundCal3 fs-5"
                   style={{
                     backgroundColor:
                       stateData === "DELIVERED"
@@ -190,11 +191,12 @@ const TrackingUi = ({ stateData, reason }) => {
                         : stateData === "CANCELLED"
                         ? "#e30613"
                         : "#ffb12b ",
+                    color: "white",
                   }}
                 />
               )}
               {/* </div> */}
-
+              {/* 4th icon */}
               {/* <div className="forthIcon"> */}
               {stateData === "DELIVERED" ? (
                 <i
@@ -210,15 +212,12 @@ const TrackingUi = ({ stateData, reason }) => {
                 ></i>
               ) : (
                 <i
-                  className="fa-solid fa-house-circle-check fs-3
+                  className="fa-solid fa-house-circle-check roundCal4
             "
                   style={{
                     backgroundColor:
-                      stateData === "DELIVERED"
-                        ? "#00c54d"
-                        : stateData === "CANCELLED"
-                        ? "#e30613"
-                        : "#ffb12b ",
+                      stateData === "DELIVERED" ? "#00c54d" : "gray",
+                    color: "white",
                   }}
                 />
               )}
@@ -228,23 +227,26 @@ const TrackingUi = ({ stateData, reason }) => {
               <p className="text title py-3 ">تم أنشاء الشحنة</p>
               <p className="text title py-3 ">تم أستلام الشحنة من التاجر</p>
               <p className="text title py-3 ">الشحنة خرجت للتسليم </p>
-              {/* {reason && (
-                <p
-                  style={{
-                    color:
-                      stateData?.CurrentStatus.state === "DELIVERED"
-                        ? "#00C54D"
-                        : stateData?.CurrentStatus.state === "CANCELLED"
-                        ? "#e30613"
-                        : "#FFB12B",
-                  }}
-                >
-                  {reason}
-                </p>
-              )} */}
+
               <p className="text title py-3 ">تم التسليم </p>
             </div>
           </div>
+        </div>
+        <div className="my-5 text-center ">
+          {reason && (
+            <p
+              style={{
+                color:
+                  stateData === "DELIVERED"
+                    ? "#00C54D"
+                    : stateData === "CANCELLED"
+                    ? "#e30613"
+                    : "#FFB12B",
+              }}
+            >
+              {reason}
+            </p>
+          )}
         </div>
       </div>
 

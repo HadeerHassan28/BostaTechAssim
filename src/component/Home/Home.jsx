@@ -39,7 +39,7 @@ const Home = () => {
   //Get the reason for TarackingUI:
   const reason = stateData?.TransitEvents?.filter(
     (event) => event.reason !== undefined && event.reason !== null
-  ).map((event) => event.reason);
+  ).map((event) => t(event.reason));
 
   if (loading || !stateData) {
     return (
@@ -104,7 +104,7 @@ const Home = () => {
                   </div>
                 </div>
                 {/* ui of tracking */}
-                <div className=" homeBorder">
+                <div className=" ">
                   {/* <HorizontalLinearStepper
                     stateData={stateData?.CurrentStatus?.state}
                     reason={reason}

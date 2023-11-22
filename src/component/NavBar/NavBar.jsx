@@ -79,18 +79,16 @@ const NavBar = () => {
             </ul>
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0 mx-5 pe-5 d-flex justify-content-end">
               <li className="nav-item">
-                <Link className="nav-link">
-                  <button onClick={handleShowModal} className="navBtn ">
-                    <strong
-                      className=" text "
-                      style={{ color: isShippingButtonActive }}
-                    >
-                      {t("shipping")}
-                      {isShippingButtonActive && (
-                        <i className="fa-solid fa-arrow-left fs-6"></i>
-                      )}
-                    </strong>
-                  </button>
+                <Link className="nav-link" onClick={() => handleShowModal()}>
+                  <strong
+                    className=" text "
+                    style={{ color: isShippingButtonActive }}
+                  >
+                    {t("shipping")}
+                    {isShippingButtonActive && (
+                      <i className="fa-solid fa-arrow-left fs-6 mx-1"></i>
+                    )}
+                  </strong>
                 </Link>
               </li>
               <li className="nav-item">

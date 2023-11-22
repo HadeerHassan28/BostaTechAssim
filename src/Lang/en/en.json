@@ -17,5 +17,9 @@
   "OUT_FOR_DELIVERY": "OUT_FOR_DELIVERY",
   "WAITING_FOR_CUSTOMER_ACTION": "WAITING FOR CUSTOMER ACTION",
   "N/A": "N/A",
-  "CANCELLED": "CANCELLED"
+  "CANCELLED": "CANCELLED",
+  "DELIVERED_TO_SENDER": "DELIVERED_TO_SENDER",
+  "Retry delivery - the customer is not in the address.": "Retry delivery - the customer is not in the address.",
+  "Postponed - the customer requested postponement for another day.": "Postponed - the customer requested postponement for another day.",
+  "Customer is not answering.": "Customer is not answering."
 }

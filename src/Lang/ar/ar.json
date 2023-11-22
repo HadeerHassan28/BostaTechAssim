@@ -17,5 +17,9 @@
   "WAITING_FOR_CUSTOMER_ACTION": "في أنتظار خدمة العملاء",
   "TICKET_CREATED": "أنشاء التذكرة",
   "N/A": "لا يوجد",
-  "CANCELLED": "تم إلغاء الشحنة"
+  "CANCELLED": "تم إلغاء الشحنة",
+  "DELIVERED_TO_SENDER": "لم يتم تسليم الشحنة",
+  "Retry delivery - the customer is not in the address.": " , العميل لم يسجل العنوان",
+  "Postponed - the customer requested postponement for another day.": "   , العميل طلب الاستلام ف يوم آخر",
+  "Customer is not answering.": "العميل لا يرد"
 }
