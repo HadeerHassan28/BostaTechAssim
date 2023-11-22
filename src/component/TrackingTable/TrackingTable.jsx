@@ -21,7 +21,7 @@ const TrackingTable = ({ stateData }) => {
     };
     return new Date(timestamp).toLocaleTimeString("ar-EG", options);
   };
-  console.log(stateData);
+  // console.log(stateData);
   return (
     <>
       <div className="col-lg-8">

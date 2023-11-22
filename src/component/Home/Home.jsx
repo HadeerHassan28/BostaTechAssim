@@ -10,7 +10,7 @@ const Home = () => {
   const { t } = useTranslation();
   const { stateData, loading } = useContext(TrackingDataContext);
 
-  console.log(stateData);
+  // console.log(stateData);
   //Convert the date:
   function formatDateString(dateString) {
     const options = {
