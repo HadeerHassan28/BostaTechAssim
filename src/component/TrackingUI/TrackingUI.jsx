@@ -223,7 +223,7 @@ const TrackingUi = ({ stateData, reason }) => {
               )}
               {/* </div> */}
             </div>
-            <div className="d-flex justify-content-between w-100 ">
+            <div className="d-flex justify-content-between w-100 mt-1">
               <p className="text title py-3 ">تم أنشاء الشحنة</p>
               <p className="text title py-3 ">تم أستلام الشحنة من التاجر</p>
               <p className="text title py-3 ">الشحنة خرجت للتسليم </p>
@@ -233,7 +233,7 @@ const TrackingUi = ({ stateData, reason }) => {
           </div>
         </div>
         <div className="my-5 text-center ">
-          {reason && (
+          {reason && stateData != "DELIVERED" && (
             <p
               style={{
                 color:

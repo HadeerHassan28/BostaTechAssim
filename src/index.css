@@ -69,13 +69,13 @@ body {
 }
 .stateCancel {
   height: 4px;
-  width: 50%;
+  width: 100%;
   background-color: var(--main-color);
 }
 
 .stateDuring {
   height: 4px;
-  width: 75%;
+  width: 100%;
   background-color: #ffb12b;
 }
 .items {
