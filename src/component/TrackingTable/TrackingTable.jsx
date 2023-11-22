@@ -51,7 +51,7 @@ const TrackingTable = ({ stateData }) => {
                   <td className="px-5 py-3">
                     {t(`${event.state}`)}
                     {event.reason != undefined ? (
-                      <p className="text-danger">{event.reason}</p>
+                      <p className="text-danger">{t(`${event.reason}`)}</p>
                     ) : null}
                   </td>
                 </tr>
