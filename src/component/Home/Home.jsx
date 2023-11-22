@@ -3,6 +3,7 @@ import styles from "./Home.module.css";
 import prob from "../../assets/imgs/problem.png";
 import { TrackingDataContext } from "../../Context/TrackingContext";
 import HorizontalLinearStepper from "../TrackingUI/TrackingUI";
+import TrackingUi from "../TrackingUI/TrackingUI";
 import TrackingTable from "../TrackingTable/TrackingTable";
 import { useTranslation } from "react-i18next";
 const Home = () => {
@@ -104,7 +105,11 @@ const Home = () => {
                 </div>
                 {/* ui of tracking */}
                 <div className=" homeBorder">
-                  <HorizontalLinearStepper
+                  {/* <HorizontalLinearStepper
+                    stateData={stateData?.CurrentStatus?.state}
+                    reason={reason}
+                  /> */}
+                  <TrackingUi
                     stateData={stateData?.CurrentStatus?.state}
                     reason={reason}
                   />
@@ -113,32 +118,34 @@ const Home = () => {
             </>
           )}
 
-          <div className="row mt-5">
-            {/* Table details */}
-            {stateData?.TransitEvents && (
-              <TrackingTable stateData={stateData} />
-            )}
+          {stateData?.TransitEvents && (
+            <>
+              <div className="row mt-5">
+                {/* Table details */}
+                <TrackingTable stateData={stateData} />
 
-            {/* Adress and complain */}
-            <div className="col-lg-4 ">
-              <h5 className="h5 title mb-4">عنوان التسليم</h5>
-              <div className="bg p-3">
-                آمبابة شارع طلعت حرب مدينة العمال بجوار البرنس منرل ١٧بلوك ٣٣،،،
-                Cairo
-              </div>
+                {/* Adress and complain */}
+                <div className="col-lg-4 ">
+                  <h5 className="h5 title mb-4">عنوان التسليم</h5>
+                  <div className="bg p-3">
+                    آمبابة شارع طلعت حرب مدينة العمال بجوار البرنس منرل ١٧بلوك
+                    ٣٣،،، Cairo
+                  </div>
 
-              {/* Compain */}
-              <div className="mt-4 d-flex flex-row homeBorder p-4">
-                <img src={prob} alt="Complain" width={100} />
-                <div className="mx-4 ">
-                  <p className="text title">
-                    <strong>!هل يوجد مشكلة في شحنتك؟</strong>
-                  </p>
-                  <button className="btn  w-100">أبلاغ عن مشكلة</button>
+                  {/* Compain */}
+                  <div className="mt-4 d-flex flex-row homeBorder p-4">
+                    <img src={prob} alt="Complain" width={100} />
+                    <div className="mx-4 ">
+                      <p className="text title">
+                        <strong>!هل يوجد مشكلة في شحنتك؟</strong>
+                      </p>
+                      <button className="btn  w-100">أبلاغ عن مشكلة</button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
       )}
     </>

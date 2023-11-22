@@ -53,7 +53,7 @@ body {
   padding: 15px 30px;
 }
 .lineUI {
-  height: 7px;
+  height: 4px;
   width: 100%;
   position: relative;
   background-color: var(--light-color);
@@ -61,50 +61,69 @@ body {
 }
 
 .stateDel {
-  height: 7px;
+  height: 4px;
   width: 100%;
   background-color: #00c54d;
   color: #f0f0f0;
 }
 .stateCancel {
-  height: 7px;
+  height: 4px;
   width: 50%;
   background-color: var(--main-color);
 }
 
 .stateDuring {
-  height: 7px;
+  height: 4px;
   width: 75%;
   background-color: #ffb12b;
 }
 .items {
-  position: absolute;
+  position: relative;
   top: -5px;
   display: flex;
   justify-content: space-between;
   background-color: #00c54d;
 }
-.secItem {
-  right: calc(50% + 100px);
-}
-.thirdIcon {
+.roundDel1 {
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+
   position: absolute;
   top: -5px;
-  left: calc(50% - 130px);
+  right: -10px;
 }
+.roundDel2 {
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
 
-.forthIcon {
   position: absolute;
   top: -5px;
-  left: calc(0px); /* Adjust the value as needed */
+  right: 33.3%;
 }
+.roundDel3 {
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
 
-.fa-regular,
-.fa-solid {
-  font-size: 1.5rem;
-  margin: 0 5px;
+  position: absolute;
+  top: -5px;
+  right: 66.6%;
 }
+.roundDel4 {
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
 
+  position: absolute;
+  top: -5px;
+  right: 99%;
+}
 .modal-custom {
   max-width: 300px;
   width: 100%;
@@ -119,4 +138,9 @@ body {
 .navBtn {
   border: none;
   background-color: transparent;
+}
+
+.customStepConnector {
+  border-width: 4px !important;
+  border-radius: 2px !important;
 }
