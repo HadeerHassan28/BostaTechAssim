@@ -153,6 +153,7 @@ const TrackingUi = ({ stateData, reason }) => {
                       : stateData === "CANCELLED"
                       ? "#e30613"
                       : "#ffb12b ",
+                  color: "white",
                 }}
               ></i>
               {/* 2nd icon */}
@@ -165,6 +166,7 @@ const TrackingUi = ({ stateData, reason }) => {
                       : stateData === "CANCELLED"
                       ? "#e30613"
                       : "#ffb12b ",
+                  color: "white",
                 }}
               ></i>
               {/* 3rd idon */}
@@ -183,7 +185,7 @@ const TrackingUi = ({ stateData, reason }) => {
                 ></i>
               ) : (
                 <i
-                  className="fa-solid fa-truck roundCal3 fs-5"
+                  className="fa-solid fa-truck roundCal3 fs-4"
                   style={{
                     backgroundColor:
                       stateData === "DELIVERED"
@@ -200,7 +202,7 @@ const TrackingUi = ({ stateData, reason }) => {
               {/* <div className="forthIcon"> */}
               {stateData === "DELIVERED" ? (
                 <i
-                  className="fa-solid fa-check roundDel4"
+                  className="fa-solid fa-check roundDel4 "
                   style={{
                     backgroundColor:
                       stateData === "DELIVERED"
@@ -212,7 +214,7 @@ const TrackingUi = ({ stateData, reason }) => {
                 ></i>
               ) : (
                 <i
-                  className="fa-solid fa-house-circle-check roundCal4
+                  className="fa-solid fa-house-circle-check roundCal4 fs-4
             "
                   style={{
                     backgroundColor:
