@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styles from "./Home.module.css";
 import prob from "../../assets/imgs/problem.png";
 import { TrackingDataContext } from "../../Context/TrackingContext";
+import { LanguageContext } from "../../Context/LangContext";
 import HorizontalLinearStepper from "../TrackingUI/TrackingUI";
 import TrackingUi from "../TrackingUI/TrackingUI";
 import TrackingTable from "../TrackingTable/TrackingTable";
@@ -9,6 +10,7 @@ import { useTranslation } from "react-i18next";
 const Home = () => {
   const { t } = useTranslation();
   const { stateData, loading } = useContext(TrackingDataContext);
+  const { lang } = useContext(LanguageContext);
 
   // console.log(stateData);
   //Convert the date:
@@ -22,8 +24,19 @@ const Home = () => {
       minute: "numeric",
     };
 
-    const formattedDate = new Date(dateString).toLocaleString("ar-EG", options);
-    return formattedDate;
+    if (lang == "ar") {
+      const formattedDate = new Date(dateString).toLocaleString(
+        "ar-EG",
+        options
+      );
+      return formattedDate;
+    } else {
+      const formattedDate = new Date(dateString).toLocaleString(
+        "en-US",
+        options
+      );
+      return formattedDate;
+    }
   }
   // Convert of the promise date:
   function formatDateStringPromiseDate(dateString) {
@@ -33,8 +46,19 @@ const Home = () => {
       day: "numeric",
     };
 
-    const formattedDate = new Date(dateString).toLocaleString("ar-EG", options);
-    return formattedDate;
+    if (lang == "ar") {
+      const formattedDate = new Date(dateString).toLocaleString(
+        "ar-EG",
+        options
+      );
+      return formattedDate;
+    } else {
+      const formattedDate = new Date(dateString).toLocaleString(
+        "en-US",
+        options
+      );
+      return formattedDate;
+    }
   }
   //Get the reason for TarackingUI:
   const reason = stateData?.TransitEvents?.filter(
@@ -45,7 +69,7 @@ const Home = () => {
     return (
       <div className="container border">
         <p className="text-danger display-3">
-          <strong>تحميل...</strong>
+          <strong>{t("Loading...")}</strong>
         </p>
       </div>
     );
@@ -63,12 +87,12 @@ const Home = () => {
                   <div className="status   d-flex flex-row justify-content-between homeBorder">
                     {/* رقم الشحن  */}
                     <div className="d-flex flex-column d1">
-                      <p className="">رقم الشحن</p>
+                      <p className="">{t("Tracking no.")}</p>
                       <p className="info">{stateData?.TrackingNumber}</p>
                     </div>
                     {/* state */}
                     <div className="d-flex flex-column d1">
-                      <p className="">حالة الشحنة</p>
+                      <p className="">{t("Status")}</p>
 
                       <p
                         className="info"
@@ -86,19 +110,19 @@ const Home = () => {
                     </div>
                     {/* update */}
                     <div className="d-flex flex-column d1">
-                      <p className="">آخر تحديث </p>
+                      <p className="">{t("Last Update")}</p>
                       <p className="info">
                         {formatDateString(stateData?.CurrentStatus.timestamp)}
                       </p>
                     </div>
                     {/* NAMe */}
                     <div className="d-flex  flex-column d1">
-                      <p className="">اسم التاجر</p>
+                      <p className="">{t("Merchant Name ")}</p>
                       <p className="info">Souq.com</p>
                     </div>
                     {/* Date */}
                     <div className="d-flex flex-column d1">
-                      <p className="">موعد التسليم خلال</p>
+                      <p className="">{t("Delivery time is within")}</p>
                       <p className="info">
                         {formatDateStringPromiseDate(stateData?.PromisedDate)}
                       </p>
@@ -124,10 +148,11 @@ const Home = () => {
 
                 {/* Adress and complain */}
                 <div className="col-lg-4 ">
-                  <h5 className="h5 title mb-4">عنوان التسليم</h5>
+                  <h5 className="h5 title mb-4">{t("Delivery address")}</h5>
                   <div className="bg p-3">
-                    آمبابة شارع طلعت حرب مدينة العمال بجوار البرنس منرل ١٧بلوك
-                    ٣٣،،، Cairo
+                    {t(
+                      "Imbaba, Talaat Harb Street, Al-Ummal City, next to Prince Mineral, Block 17  33,,, Cairo"
+                    )}
                   </div>
 
                   {/* Compain */}
@@ -135,9 +160,13 @@ const Home = () => {
                     <img src={prob} alt="Complain" width={100} />
                     <div className="mx-4 ">
                       <p className="text title">
-                        <strong>!هل يوجد مشكلة في شحنتك؟</strong>
+                        <strong>
+                          {t("Is there a problem with your shipment?!")}
+                        </strong>
                       </p>
-                      <button className="btn  w-100">أبلاغ عن مشكلة</button>
+                      <button className="btn  w-100">
+                        {t("Report a problem")}
+                      </button>
                     </div>
                   </div>
                 </div>

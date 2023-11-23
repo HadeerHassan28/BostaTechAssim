@@ -21,5 +21,27 @@
   "DELIVERED_TO_SENDER": "لم يتم تسليم الشحنة",
   "Retry delivery - the customer is not in the address.": " , العميل لم يسجل العنوان",
   "Postponed - the customer requested postponement for another day.": "   , العميل طلب الاستلام ف يوم آخر",
-  "Customer is not answering.": "العميل لا يرد"
+  "Customer is not answering.": "العميل لا يرد",
+  "Loading...": "تحميل...",
+  "Tracking no.": "رقم الشحن",
+  "Status": "حالة الشحن",
+  "Last Update": "آخر تحديث",
+  "Merchant Name ": "أسم التاجر",
+  "Delivery time is within": "موعد التسليم خلال",
+  "Shipping Info": "تفاصيل الشحنة",
+  "Branch": "الفرع",
+  "Date": "التاريخ",
+  "ُTime": "الوقت",
+  "ُDetails": "تفاصيل",
+  "N-A": "لا يوجد",
+  "Postponed - the client requested a postponement for another day.": " تأجيل - العميل طلب التاجيل ليوم اخر",
+  "Delivery address": "عنوان التسليم",
+
+  "Imbaba, Talaat Harb Street, Al-Ummal City, next to Prince Mineral, Block 17  33,,, Cairo": "آمبابة شارع طلعت حرب مدينة العمال بجوار البرنس منرل ١٧بلوك ٣٣،،، Cairo",
+  "Is there a problem with your shipment?!": "!هل يوجد مشكلة في شحنتك؟",
+  "Report a problem": "أبلاغ عن مشكلة",
+  "Shipment creation ": "تم أنشاء الشحنة",
+  "Shipment received from the merchant": "تم أستلام الشحنة من التاجر",
+  "The shipment is out for delivery": "الشحنة خرجت للتسليم",
+  "Sent delivered handed": "تم التسليم"
 }

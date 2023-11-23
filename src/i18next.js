@@ -18,6 +18,9 @@ i18n.use(initReactI18next).init({
   },
   ns: ["translations"],
   defaultNS: "translations",
+  react: {
+    useSuspense: false,
+  },
 });
 
 i18n.languages = ["en", "ar"];

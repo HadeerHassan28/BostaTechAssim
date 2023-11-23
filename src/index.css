@@ -94,7 +94,7 @@ body {
 
   position: absolute;
   top: -5px;
-  right: -10px;
+  /* right: -10px; */
 }
 .roundDel2 {
   padding: 5px;
@@ -104,7 +104,7 @@ body {
 
   position: absolute;
   top: -5px;
-  right: 33.3%;
+  /* right: 33.3%; */
 }
 .roundDel3 {
   padding: 5px;
@@ -114,7 +114,7 @@ body {
 
   position: absolute;
   top: -10px;
-  right: 66.6%;
+  /* right: 66.6%; */
 }
 .roundDel4 {
   padding: 5px;
@@ -123,7 +123,7 @@ body {
   border-radius: 50%;
   position: absolute;
   top: -10px;
-  right: 99%;
+  /* right: 99%; */
 }
 /* Canel */
 .roundCal3 {
@@ -134,7 +134,7 @@ body {
 
   position: absolute;
   top: -15px;
-  right: 66.6%;
+  /* right: 66.6%; */
 }
 .roundCal4 {
   padding: 5px;
@@ -144,7 +144,7 @@ body {
 
   position: absolute;
   top: -15px;
-  right: 99%;
+  /* right: 99%; */
 }
 .modal-custom {
   max-width: 300px;

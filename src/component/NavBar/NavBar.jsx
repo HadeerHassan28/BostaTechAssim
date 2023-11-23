@@ -6,9 +6,10 @@ import logo from "../../assets/imgs/logo.png";
 import { Modal, Button, InputGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { TrackingDataContext } from "../../Context/TrackingContext";
+import { LanguageContext } from "../../Context/LangContext";
 const NavBar = () => {
   const { t } = useTranslation();
-
+  const { lang, changeLanguage } = useContext(LanguageContext);
   const [showModal, setShowModal] = useState(false);
   const [isShippingButtonActive, setShippingButtonActive] = useState("");
 
@@ -35,6 +36,12 @@ const NavBar = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+  //Lang
+  const handleChangeLang = async () => {
+    console.log(lang);
+    const newLang = lang === "ar" ? "en" : "ar";
+    await changeLanguage(newLang);
   };
   return (
     <>
@@ -87,9 +94,12 @@ const NavBar = () => {
                     style={{ color: isShippingButtonActive }}
                   >
                     {t("shipping")}
-                    {isShippingButtonActive && (
-                      <i className="fa-solid fa-arrow-left fs-6 mx-1"></i>
-                    )}
+                    {isShippingButtonActive &&
+                      (lang === "ar" ? (
+                        <i className="fa-solid fa-arrow-left fs-6 mx-1"></i>
+                      ) : (
+                        <i class="fa-solid fa-arrow-right fs-6 mx-1"></i>
+                      ))}
                   </strong>
                 </Link>
               </li>
@@ -99,8 +109,11 @@ const NavBar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <button className="nav-link">
-                  <strong className="text-danger"> EN</strong>
+                <button className="nav-link" onClick={() => handleChangeLang()}>
+                  <strong className="text-danger">
+                    {" "}
+                    {lang === "ar" ? "EN" : "AR"}
+                  </strong>
                 </button>
               </li>
             </ul>
@@ -114,11 +127,11 @@ const NavBar = () => {
           onHide={handleCloseModal}
           style={{
             marginTop: "46px",
-            left: "-155px",
+            left: lang === "ar" ? "-155px" : "500px",
           }}
         >
           <Modal.Header closeButton>
-            <Modal.Title>لتتبع شحنتك</Modal.Title>
+            <Modal.Title> {t("Please Enter a Tracking Number")}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <InputGroup>

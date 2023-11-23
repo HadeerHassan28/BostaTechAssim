@@ -2,10 +2,12 @@ import React, { useEffect, useReducer, useState, useCallback } from "react";
 import useAxios from "axios-hooks";
 import Reducer from "./reducer";
 import { GET_DATA, FETCH_ERROR } from "./reducersTypes";
+import { useTranslation } from "react-i18next";
 
 export const TrackingDataContext = React.createContext();
 
 const TrackingProvider = ({ children }) => {
+  const { t } = useTranslation();
   const [trackingNumber, setTrackingNumber] = useState("");
   const [{ data, loading, error }, refetch] = useAxios({
     url: trackingNumber
@@ -40,7 +42,7 @@ const TrackingProvider = ({ children }) => {
     return (
       <div className="container border">
         <p className="text-danger display-3">
-          <strong>تحميل...</strong>
+          <strong>{t("Loading...")}</strong>
         </p>
       </div>
     );

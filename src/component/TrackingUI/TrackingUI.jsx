@@ -1,11 +1,15 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
+import { LanguageContext } from "../../Context/LangContext";
 import styles from "./TrackingUi.module.css";
 const TrackingUi = ({ stateData, reason }) => {
+  const { t } = useTranslation();
+  const { lang } = useContext(LanguageContext);
+
   return (
     <>
-      <div className=" lineBorder pb-5">
-        <div className="lineUI mt-2  ">
+      <div className=" lineBorder pb-5 ">
+        <div className="lineUI mt-2 " dir={lang == "ar" ? "rtl" : "ltr"}>
           {/* icons */}
           <div
             className={
@@ -28,6 +32,8 @@ const TrackingUi = ({ stateData, reason }) => {
                       ? "#e30613"
                       : "#ffb12b ",
                   color: "white",
+                  marginRight: lang === "ar" ? "0rem" : "0",
+                  marginLeft: lang === "en" ? "0rem" : "0",
                 }}
               ></i>
               {/* 2nd icon */}
@@ -41,6 +47,8 @@ const TrackingUi = ({ stateData, reason }) => {
                       ? "#e30613"
                       : "#ffb12b ",
                   color: "white",
+                  marginRight: lang === "ar" ? "20rem" : "0",
+                  marginLeft: lang === "en" ? "30rem" : "0",
                 }}
               ></i>
             </div>
@@ -56,6 +64,8 @@ const TrackingUi = ({ stateData, reason }) => {
                       : stateData === "CANCELLED"
                       ? "#e30613"
                       : "#ffb12b ",
+                  marginRight: lang === "ar" ? "51rem" : "0",
+                  marginLeft: lang === "en" ? "51rem" : "0",
                 }}
               ></i>
             ) : (
@@ -69,6 +79,8 @@ const TrackingUi = ({ stateData, reason }) => {
                       ? "#e30613"
                       : "#ffb12b ",
                   color: "white",
+                  marginRight: lang === "ar" ? "51rem" : "0",
+                  marginLeft: lang === "en" ? "51rem" : "0",
                 }}
               />
             )}
@@ -85,6 +97,8 @@ const TrackingUi = ({ stateData, reason }) => {
                       : stateData === "CANCELLED"
                       ? "#e30613"
                       : "#ffb12b ",
+                  marginRight: lang === "ar" ? "73rem" : "0",
+                  marginLeft: lang === "en" ? "73rem" : "0",
                 }}
               ></i>
             ) : (
@@ -95,6 +109,8 @@ const TrackingUi = ({ stateData, reason }) => {
                   backgroundColor:
                     stateData === "DELIVERED" ? "#00c54d" : "gray",
                   color: "white",
+                  marginRight: lang === "ar" ? "73rem" : "0",
+                  marginLeft: lang === "en" ? "73rem" : "0",
                 }}
               />
             )}
@@ -102,11 +118,15 @@ const TrackingUi = ({ stateData, reason }) => {
           </div>
           {/* Names */}
           <div className="d-flex justify-content-between w-100 pt-2 ">
-            <p className="text title py-3 ">تم أنشاء الشحنة</p>
-            <p className="text title py-3 name2">تم أستلام الشحنة من التاجر</p>
+            <p className="text title py-3 "> {t("Shipment creation ")}</p>
+            <p className="text title py-3 name2">
+              {t("Shipment received from the merchant")}
+            </p>
             {/* Reason */}
             <div className="d-flex flex-column ">
-              <p className="text title pt-3 m-0 name3 ">الشحنة خرجت للتسليم </p>
+              <p className="text title pt-3 m-0 name3 ">
+                {t("The shipment is out for delivery")}
+              </p>
               <p>
                 {reason && stateData != "DELIVERED" && (
                   <p
@@ -120,13 +140,15 @@ const TrackingUi = ({ stateData, reason }) => {
                           : "#FFB12B",
                     }}
                   >
-                    {reason[reason.length - 1]}
+                    {t(reason[reason.length - 1])}
                   </p>
                 )}
               </p>
             </div>
 
-            <p className="text title py-3 name4">تم التسليم </p>
+            <p className="text title py-3 name4">
+              {t("Sent delivered handed")}
+            </p>
           </div>
         </div>
       </div>
