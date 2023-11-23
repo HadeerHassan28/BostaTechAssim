@@ -63,7 +63,7 @@ const Home = () => {
   //Get the reason for TarackingUI:
   const reason = stateData?.TransitEvents?.filter(
     (event) => event.reason !== undefined && event.reason !== null
-  ).map((event) => t(event.reason));
+  ).map((event) => t(`${event.reason}`));
 
   if (loading || !stateData) {
     return (

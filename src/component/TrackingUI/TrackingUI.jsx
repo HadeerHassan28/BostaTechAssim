@@ -48,7 +48,7 @@ const TrackingUi = ({ stateData, reason }) => {
                       : "#ffb12b ",
                   color: "white",
                   marginRight: lang === "ar" ? "20rem" : "0",
-                  marginLeft: lang === "en" ? "30rem" : "0",
+                  marginLeft: lang === "en" ? "20rem" : "0",
                 }}
               ></i>
             </div>
@@ -119,7 +119,13 @@ const TrackingUi = ({ stateData, reason }) => {
           {/* Names */}
           <div className="d-flex justify-content-between w-100 pt-2 ">
             <p className="text title py-3 "> {t("Shipment creation ")}</p>
-            <p className="text title py-3 name2">
+            <p
+              className="text title py-3 name2"
+              style={{
+                marginRight: lang === "ar" ? "0rem" : "0",
+                marginLeft: lang === "en" ? "-170px" : "0",
+              }}
+            >
               {t("Shipment received from the merchant")}
             </p>
             {/* Reason */}
@@ -130,7 +136,7 @@ const TrackingUi = ({ stateData, reason }) => {
               <p>
                 {reason && stateData != "DELIVERED" && (
                   <p
-                    className="p-0 m-0 "
+                    className="p-0  my-0 "
                     style={{
                       color:
                         stateData === "DELIVERED"
@@ -138,6 +144,8 @@ const TrackingUi = ({ stateData, reason }) => {
                           : stateData === "CANCELLED"
                           ? "#e30613"
                           : "#FFB12B",
+                      marginRight: lang === "ar" ? "0rem" : "0",
+                      marginLeft: lang === "en" ? "100px" : "0",
                     }}
                   >
                     {t(reason[reason.length - 1])}
